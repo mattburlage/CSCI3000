@@ -1,0 +1,29 @@
+a {
+    color: blue;
+}
+
+.delete-x {
+    color: red;
+}
+
+#slideshow-table {
+    width: 700px;
+}
+
+#slideshow {
+    height: 400px;
+    width: 700px;
+}
+
+#slideshow-div {
+    height: 400px;
+    width: 700px;
+}
+
+#menu-div {
+    min-height: 200px;
+}
+
+.table-cell {
+    text-align: center;
+}

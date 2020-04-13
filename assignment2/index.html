@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<!--
+    Assignment 2
+    By Matthew Smith-Burlage
+    1-27-2020
+
+    -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 2</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <link rel="stylesheet" href="assignment2.css">
+</head>
+<body>
+<div id="app"></div>
+
+<script type="text/babel">
+    function MenuItem (props) {
+        const subMenuId = props.id * 3;
+
+        const subMenu = (
+            <ul>
+                <li><a href="#">Sub Menu {subMenuId - 2}</a></li>
+                <li><a href="#">Sub Menu {subMenuId - 1}</a></li>
+                <li><a href="#">Sub Menu {subMenuId}</a></li>
+            </ul>
+        );
+
+        return (
+            <li>
+                <a href="#" onClick={props.clickMenu}>Menu Item {props.id}</a>
+                {props.isOpen ? subMenu : ''}
+            </li>
+        )
+    }
+
+    class Menu extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                selectedPage: null,
+            };
+            this.handleClick = this.handleClick.bind(this);
+        }
+
+        handleClick (page) {
+            this.setState({
+                selectedPage: page,
+            })
+        }
+
+        render() {
+            return (
+                <div id="menu-div">
+                    <ul>
+                        <MenuItem id={1}
+                                  isOpen={this.state.selectedPage === 1}
+                                  clickMenu={() => this.handleClick(1)}
+                        />
+                        <MenuItem id={2}
+                                  isOpen={this.state.selectedPage === 2}
+                                  clickMenu={() => this.handleClick(2)}
+                        />
+                        <MenuItem id={3}
+                                  isOpen={this.state.selectedPage === 3}
+                                  clickMenu={() => this.handleClick(3)}
+                        />
+                    </ul>
+                </div>
+            );
+        }
+    }
+
+
+    class Slideshow extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                activePhoto: 0,
+                images: [
+                    'https://besthqwallpapers.com/Uploads/25-5-2019/93817/thumb2-tottenham-hotspur-fc-golden-logo-premier-league-blue-abstract-background-soccer.jpg',
+                    'https://wallpaperplay.com/walls/full/a/3/8/118039.jpg',
+                    'https://images4.alphacoders.com/971/971962.jpg',
+                    'https://www.n17club.co.uk/images/FF54B6D8-8860-4B52-9564-B44CBE047B52.jpeg',
+                    'https://media.gettyimages.com/photos/tottenham-hotspur-fans-wave-their-flags-during-the-closing-ceremony-picture-id683037644?s=612x612',
+                    'https://www.flagsexpo.com/main/Upload/Images/Tottenham-Hotspur-FC-Flag_2220_F.jpg?im=6c3025d6-c12b-432c-9b8d-ea45b5a26078',
+                    'https://editorial01.shutterstock.com/wm-preview-1500/9008948br/d6cb5271/tottenham-hotspur-v-chelsea-premier-league-wembley-stadium-wembley-london-uk-shutterstock-editorial-9008948br.jpg',
+                ]
+            };
+            this.prevPhoto = this.prevPhoto.bind(this);
+            this.nextPhoto = this.nextPhoto.bind(this);
+        }
+
+        prevPhoto () {
+            if (this.state.activePhoto > 0) {
+                this.setState({
+                    activePhoto: this.state.activePhoto - 1
+                })
+            } else {
+                this.setState({
+                    activePhoto: this.state.images.length - 1
+                })
+            }
+        }
+
+        nextPhoto () {
+            if (this.state.activePhoto < this.state.images.length - 1) {
+                this.setState({
+                    activePhoto: this.state.activePhoto + 1
+                })
+            } else {
+                this.setState({
+                    activePhoto: 0
+                })
+            }
+        }
+
+        render() {
+            return (
+                <div>
+                    <div id="slideshow-div">
+                        <img alt="slideshow" id="slideshow" src={this.state.images[this.state.activePhoto]} />
+                    </div>
+                    <table id="slideshow-table">
+                        <thead />
+                        <tbody>
+                        <tr>
+                            <td className="table-cell"><h3><a href="#" onClick={this.prevPhoto}>Prev</a></h3></td>
+                            <td className="table-cell"><h3><a href="#" onClick={this.nextPhoto}>Next</a></h3></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            );
+        }
+    }
+
+
+    function ToDoList (props) {
+        const items = props.items;
+        const itemList = [];
+
+        for (let i = 0; i < items.length; i++) {
+            let newJsx = (
+                <li key={i}>
+                    {items[i]}
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#" className="delete-x" onClick={() => props.deleteTask(i)}>x</a>
+                </li>
+            );
+            itemList.push(newJsx);
+        }
+
+        return (
+            <ul>
+                {itemList}
+            </ul>
+        )
+    }
+
+
+    class ToDo extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                todoList: [],
+                newItemText: '',
+            };
+            this.handleUpdate = this.handleUpdate.bind(this);
+            this.addTask = this.addTask.bind(this);
+            this.deleteTask = this.deleteTask.bind(this);
+        }
+
+        addTask () {
+            const newList = this.state.todoList;
+            newList.push(this.state.newItemText);
+
+            this.setState({
+                todoList: newList,
+                newItemText: ''
+            })
+        }
+
+        deleteTask (e) {
+            const newList = this.state.todoList;
+            newList.splice(e, 1);
+
+            this.setState({
+                todoList: newList,
+            })
+        }
+
+        handleUpdate (e) {
+            this.setState({
+                newItemText: e.target.value
+            });
+        }
+
+        render() {
+            return (
+                <div>
+                    <div>To Do List:</div>
+                    <ToDoList
+                        items={this.state.todoList}
+                        deleteTask={this.deleteTask}
+                    />
+                    <label>New Item:&nbsp;
+                    <input
+                        value={this.state.newItemText}
+                        onChange={this.handleUpdate}
+                    /></label>
+                    <button onClick={this.addTask}>Add</button>
+                </div>
+            );
+        }
+    }
+
+    class App extends React.Component {
+        constructor(props) {
+            super(props);
+
+        }
+
+        render() {
+            return (
+                <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td width="400px">
+                                    <Menu />
+                                </td>
+                                <td>
+                                    <ToDo/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <Slideshow/>
+                </div>
+            );
+        }
+    }
+
+    ReactDOM.render(<App />, document.getElementById('app'))
+</script>
+</body>
+</html>

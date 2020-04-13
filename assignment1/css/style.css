@@ -1,0 +1,33 @@
+.muted {
+    color: slategray;
+}
+
+#word-association-label {
+    font-weight: bold;
+    background-color: #882D17;
+    color: whitesmoke;
+    padding: 10px;
+}
+
+.header1 {
+    align-self: center;
+}
+
+table {
+    border-style: solid;
+    border-color: black;
+}
+
+.center {
+    text-align: center;
+}
+
+.image {
+    margin: 5px;
+    height: 100px;
+    width: 200px;
+}
+
+a:hover {
+    font-size: xx-large;
+}
