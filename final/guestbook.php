@@ -171,7 +171,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errorField = '';
     foreach ($values as $key => $value) {
-        echo $value.'\n';
         if (strlen($value) == 0){
             $errorField = $key;
         }
@@ -194,7 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
-$query = $db->prepare("SELECT * FROM guestbook LIMIT 100");
+$query = $db->prepare("SELECT * FROM guestbook ORDER BY id DESC LIMIT 100");
 
 $query->execute();
 $results = $query->fetchAll(PDO::FETCH_ASSOC);
