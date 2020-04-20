@@ -223,8 +223,8 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php">Page 1</a>
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Page 2</a>
@@ -235,7 +235,7 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
             <li class="nav-item">
                 <a class="nav-link" href="#">Page 4</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="#">Guest Book</a>
             </li>
         </ul>
@@ -295,7 +295,7 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
         <?
         foreach ($results as $row) {
             echo "
-            <div class=\"col-3\">
+            <div class=\"col-sm-6 col-lg-4 col-xl-3 col-12 mb-3\">
                 <div class=\"card\" style='background-color: ".$row['color'].";'>
                     <div class=\"card-body\">
                         <h5 class=\"card-title\">".$row['name']."</h5>
