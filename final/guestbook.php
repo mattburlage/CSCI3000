@@ -149,6 +149,9 @@ try {
     $db = new PDO("mysql:host=$host; dbname=$database;", $username, $password);
 } catch (Exception $e) {}
 
+$queryins = $db->prepare("UPDATE pagecount set count = count + 1 WHERE page = 'guestbook'");
+$queryins->execute();
+
 $message = "Please leave a nice comment below. Or don't. Whatever.";
 $messageClass = '';
 $defaultColor = '';
@@ -185,8 +188,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $queryins->execute();
     } else {
-        $message = ucfirst($errorField)." cannot be blank.";
-        $messageClass = 'text-danger';
+        $message = ucfirst($errorField)." cannot be blank. Please try again. Or don't. I don't care.";
+        $messageClass = 'alert alert-danger';
         $defaultValues = $values;
         $defaultColor = $values['color'];
     }
@@ -209,7 +212,7 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
 
     <title>Final Project</title>
 </head>
@@ -223,7 +226,7 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
@@ -233,16 +236,23 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
                 <a class="nav-link" href="#">Page 3</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Page 4</a>
+                <a class="nav-link" href="counter.php">Page Counter</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Guest Book</a>
+            <li class="nav-item">
+                <a class="nav-link" href="guestbook.php">Guest Book</a>
             </li>
         </ul>
     </div>
 </nav>
 
 <div class="container body-container">
+    <div class="row mt-3 mb-2">
+        <div class="col-12">
+            This page uses a form to submit guest book comments. It then displays those comments and other data,
+            including background color, in cards below.  Using jQuery, it also then figures out which text color
+            (between blank and white) will look better given the chosen color. I'm pretty proud of that in particular.
+        </div>
+    </div>
     <div class="row mt-5 mb-2">
         <div class="col-12">
             <div class="jumbotron">
@@ -293,18 +303,20 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="row">
         <?
+        $counter = 0;
         foreach ($results as $row) {
             echo "
             <div class=\"col-sm-6 col-lg-4 col-xl-3 col-12 mb-3\">
-                <div class=\"card\" style='background-color: ".$row['color'].";'>
+                <div id='card-".$counter."' class=\"card\" style='background-color: ".$row['color'].";'>
                     <div class=\"card-body\">
                         <h5 class=\"card-title\">".$row['name']."</h5>
-                        <h6 class=\"card-subtitle mb-2 text-muted\">".$row['catchphrase']."</h6>
+                        <h6 class=\"card-subtitle mb-2\">".$row['catchphrase']."</h6>
                         <p class=\"card-text\">".$row['message']."</p>
                     </div>
                 </div>
             </div>
             ";
+            $counter++;
         }
         ?>
 
@@ -328,5 +340,6 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="js/colors.js"></script>
 </body>
 </html>

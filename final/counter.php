@@ -9,7 +9,7 @@ try {
     $db = new PDO("mysql:host=$host; dbname=$database;", $username, $password);
 } catch (Exception $e) {}
 
-$queryins = $db->prepare("UPDATE pagecount set count = count + 1 WHERE page = 'home'");
+$queryins = $db->prepare("UPDATE pagecount set count = count + 1 WHERE page = 'counter'");
 $queryins->execute();
 
 
@@ -28,7 +28,7 @@ $queryins->execute();
 
     <title>Final Project</title>
 </head>
-<body>
+<body onresize="drawChart()">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Matt's Final</a>
@@ -45,7 +45,7 @@ $queryins->execute();
                 <a class="nav-link" href="#">Page 2</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Page 3</a>
+                <a class="nav-link" href="link.php">Link Shortener</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="counter.php">Page Counter</a>
@@ -57,10 +57,25 @@ $queryins->execute();
     </div>
 </nav>
 
-<div class="container body-container">
-    <div class="row mt-5">
+<div class="container body-container text-center">
+    <div class="row mt-3 mb-2">
         <div class="col-12">
+            This page uses AJAX to get the current page view counts for all five pages in my project.
+            Each page has PHP code to increment it's counter in the database, and this page grabs that
+            data via AJAX and formats it for Google's Chart API. The button also reloads the count.
+        </div>
+        <div class="col-12 mt-2">
+            Open this in a new tab and navigate around to change the counts.
+            Then come back and press the button to see the effects.
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <button type="button" class="btn btn-primary mb-5" onclick="drawChart()">Update Page Views</button>
+            <div id="chart_div"></div>
 
+        </div>
+        <div class="col-9">
         </div>
     </div>
 </div>
@@ -82,5 +97,7 @@ $queryins->execute();
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="js/ajax.js"></script>
 </body>
 </html>

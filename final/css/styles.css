@@ -1,0 +1,17 @@
+.body-container {
+    min-height: 400px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.chart-div {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.gb-card-headline {
+    color: inherit;
+}
+
