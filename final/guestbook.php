@@ -226,14 +226,14 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item ">
+            <li class="nav-item">
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Page 2</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Page 3</a>
+                <a class="nav-link" href="link.php">Link Shortener</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="counter.php">Page Counter</a>
