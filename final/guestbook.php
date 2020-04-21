@@ -218,8 +218,9 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Matt's Final</a>
+
+<nav class="navbar navbar-expand-lg fade2500 navbar-light bg-light star-wars-nav">
+    <a class="navbar-brand" href="index.php">Matt's Final</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -230,9 +231,6 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Page 2</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="link.php">Link Shortener</a>
             </li>
             <li class="nav-item">
@@ -241,16 +239,20 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
             <li class="nav-item">
                 <a class="nav-link" href="guestbook.php">Guest Book</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="starwars.php">Star Wars</a>
+            </li>
         </ul>
     </div>
 </nav>
+
 
 <div class="container body-container">
     <div class="row mt-3 mb-2">
         <div class="col-12">
             This page uses a form to submit guest book comments. It then displays those comments and other data,
             including background color, in cards below.  Using jQuery, it also then figures out which text color
-            (between blank and white) will look better given the chosen color. I'm pretty proud of that in particular.
+            (between blank and white) will look better given the chosen color programmatically.
         </div>
     </div>
     <div class="row mt-5 mb-2">

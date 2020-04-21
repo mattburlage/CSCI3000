@@ -30,8 +30,8 @@ $queryins->execute();
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Matt's Final</a>
+<nav class="navbar navbar-expand-lg fade2500 navbar-light bg-light star-wars-nav">
+    <a class="navbar-brand" href="index.php">Matt's Final</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -42,9 +42,6 @@ $queryins->execute();
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Page 2</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="link.php">Link Shortener</a>
             </li>
             <li class="nav-item">
@@ -53,6 +50,9 @@ $queryins->execute();
             <li class="nav-item">
                 <a class="nav-link" href="guestbook.php">Guest Book</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="starwars.php">Star Wars</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -60,7 +60,19 @@ $queryins->execute();
 <div class="container body-container">
     <div class="row mt-5">
         <div class="col-12">
+            <div class="display-4">
+                Welcome to my site!
+            </div>
+            <div class="lead">
+                This is my final project.
+            </div>
+            <div class="mt-3 text-center">
+                 To be honest, I ran out of requirements building the other
+                four pages, so here is homestarrunner.com's "Everybody To The Limit."
 
+                <iframe class="mt-5" width="560" height="315" src="https://www.youtube.com/embed/KFNcStdF_Ok" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            </div>
         </div>
     </div>
 </div>

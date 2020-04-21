@@ -5,7 +5,7 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
-    $.getJSON('ajax.php', jsonData => {
+    $.getJSON('ajax/ajax.php', jsonData => {
         let rows = [];
         for (let i = 0; i < jsonData.length; i++) {
             const cur_row = jsonData[i];

@@ -15,9 +15,5 @@
     $query->execute();
     $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($results as $row) {
-
-    }
-
     echo json_encode($results);
 

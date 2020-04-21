@@ -29,9 +29,8 @@ $queryins->execute();
     <title>Final Project</title>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Matt's Final</a>
+<nav class="navbar navbar-expand-lg fade2500 navbar-light bg-light star-wars-nav">
+    <a class="navbar-brand" href="index.php">Matt's Final</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -42,9 +41,6 @@ $queryins->execute();
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Page 2</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="link.php">Link Shortener</a>
             </li>
             <li class="nav-item">
@@ -52,6 +48,9 @@ $queryins->execute();
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="guestbook.php">Guest Book</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="starwars.php">Star Wars</a>
             </li>
         </ul>
     </div>
