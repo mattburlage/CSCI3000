@@ -306,6 +306,9 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
             <div class="mt-5 display-4">
                 Reload to play again
             </div>
+            <div id="status-msg-div" class="mt-5">
+
+            </div>
         </div>
     </div>
 </div>

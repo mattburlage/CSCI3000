@@ -1,8 +1,16 @@
+const wordCount = 4;
+let successMessage = 'Your story did not save';
 
 function madLibs (story) {
-    console.log(story);
 
-    const wordCount = 4;
+    let storyData;
+
+    if (story) {
+        storyData = JSON.parse(story['data'])
+    } else {
+        saveStory();
+    }
+
     const title = $('#id_title').val()
     if (title !== '' || story) {
 
@@ -11,8 +19,6 @@ function madLibs (story) {
         } else {
             $('#subtitle').text(title)
         }
-
-        const storyData = JSON.parse(story['data'])
 
         for (let i = 1; i <= wordCount; i++) {
             let word;
@@ -33,13 +39,35 @@ function madLibs (story) {
     }
 }
 
+function saveStory() {
+    const wordData = {};
+    const title = $('#id_title').val();
+
+    for (let i = 1; i <= wordCount; i++) {
+        const wordNum = 'word' + i
+        const word = $('#id_' + wordNum).val();
+
+        wordData[wordNum] = word;
+    }
+
+    const data = {
+        title: title,
+        data: JSON.stringify(wordData),
+    }
+
+    $.post('ajax/sw-ajax.php', data, res => {
+        if (res.status === 'ok') $('#status-msg-div').text('Your story saved.');
+        else $('#status-msg-div').text('Your story did not save.');
+    })
+}
+
 function pickStory (id) {
-    console.log(jsonRes);
     let story = jsonRes.filter(item => {
         return item.id == id
     });
     if (story.length === 1) story = story[0];
 
+    $('#status-msg-div').text('');
     madLibs(story);
     return false;
 }
