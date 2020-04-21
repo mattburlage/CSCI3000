@@ -12,10 +12,12 @@ function madLibs (story) {
             $('#subtitle').text(title)
         }
 
+        const storyData = JSON.parse(story['data'])
+
         for (let i = 1; i <= wordCount; i++) {
             let word;
             if (story) {
-                word = story['data']['word'+1]
+                word = storyData['word'+i]
             } else {
                 word = $('#id_word' + i).val();
             }
@@ -33,7 +35,9 @@ function madLibs (story) {
 
 function pickStory (id) {
     console.log(jsonRes);
-    let story = jsonRes.filter(item => item.id == id);
+    let story = jsonRes.filter(item => {
+        return item.id == id
+    });
     if (story.length === 1) story = story[0];
 
     madLibs(story);
