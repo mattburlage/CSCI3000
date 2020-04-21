@@ -10,7 +10,7 @@ function drawChart() {
         for (let i = 0; i < jsonData.length; i++) {
             const cur_row = jsonData[i];
             let new_row = {
-                c: [{v: cur_row['page'], f: null}, {v: cur_row['count'], f: null}]
+                c: [{v: cur_row['label'], f: null}, {v: cur_row['count'], f: null}]
             }
             rows.push(new_row)
         }
