@@ -1,5 +1,4 @@
 const wordCount = 4;
-let successMessage = 'Your story did not save';
 
 function madLibs (story) {
 
@@ -56,7 +55,8 @@ function saveStory() {
     }
 
     $.post('ajax/sw-ajax.php', data, res => {
-        if (res.status === 'ok') $('#status-msg-div').text('Your story saved.');
+        res = JSON.parse(res);
+        if (res['status'] === 'ok') $('#status-msg-div').text('Your story saved.');
         else $('#status-msg-div').text('Your story did not save.');
     })
 }
