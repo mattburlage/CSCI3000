@@ -14,6 +14,7 @@
                 <div>
                     To try and delete all of my data, type the following into the Email field:<br><br>
                     <pre>email@email.com'); TRUNCATE TABLE registration; --</pre>
+                    Or try on the <a href="insecure.php">insecure page.</a>
                 </div>
             </div>
         </div>
