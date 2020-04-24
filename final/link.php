@@ -65,16 +65,14 @@ $queryins->execute();
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-2"></div>
-            <div class="col-8">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-12">
                 <div class="input-group input-group-lg mb-3">
                     <input type="text" name="url" id="url_id" autocomplete="off" class="form-control" placeholder="URL">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Get Short Link</button>
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Get Link</button>
                     </div>
                 </div>
             </div>
-            <div class="col-2"></div>
         </div>
         <div class="row mt-5 ">
             <div class="col-12">

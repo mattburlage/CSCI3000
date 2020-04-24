@@ -140,6 +140,8 @@ function undoStarWars () {
     bodyTag.removeClass('body-perf');
 
     $('.star').fadeOut(2500);
+    $('.vanish-at-end').fadeOut(2500);
+
 
     setInterval(() => {
         $('#end-thanks').fadeIn();

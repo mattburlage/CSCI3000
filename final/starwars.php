@@ -244,7 +244,7 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
     </section>
 
     <!-- Change the text to your liking -->
-    <div id="board" class="sw-trigger">
+    <div id="board" class="sw-trigger vanish-at-end">
         <div id="content">
             <p id="title">Episode I</p>
             <p id="subtitle">THE CODER'S MENACE</p>
@@ -264,7 +264,8 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
                 the evil
                 <span id="word4_tar">Galactic Empire</span>.
 
-                During the battle, Rebel
+                During the
+                <span id="word5_tar">battle</span>, Rebel
                 spies managed to steal secret
                 plans to the Empire's
                 ultimate weapon, the DEATH

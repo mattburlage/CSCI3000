@@ -12,11 +12,17 @@ try {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $vote_option = $_POST['vote_option'];
+    $error_msg = '';
 
-    $queryins = $db->prepare("INSERT INTO votes (vote_option) VALUES (?)");
-    $queryins->bindParam(1, $vote_option);
+    if ($vote_option != '') {
+        $queryins = $db->prepare("INSERT INTO votes (vote_option) VALUES (?)");
+        $queryins->bindParam(1, $vote_option);
 
-    $queryins->execute();
+        $queryins->execute();
+    } else {
+        $error_msg = 'Please choose a valid option.';
+    }
+
 }
 
 $query = $db->prepare("SELECT * FROM votes");
@@ -68,8 +74,6 @@ foreach ($results as $vote) {
                 ['Senior Project', <? echo $count5 ?>]
             ]
 
-            console.log(rows)
-
             // Create the data table.
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Topping');
@@ -94,8 +98,9 @@ foreach ($results as $vote) {
         <div class="col-4">
             <form method="POST">
                 <label for="vote_option">Favorite CSCI Course:</label>
+                <? if($error_msg != '') echo "<div class='alert alert-danger'>".$error_msg."</div>" ?>
                 <select class="form-control" name="vote_option" id="vote_option">
-                    <option>------</option>
+                    <option value="">------</option>
                     <option value="1">Web Programming</option>
                     <option value="2">Algorithms</option>
                     <option value="3">Operating Systems</option>
