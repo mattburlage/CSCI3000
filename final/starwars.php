@@ -137,6 +137,26 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
             <label for="id_word4">A company:</label>
             <input name="word4" class="form-control" id="id_word4">
         </div>
+        <div class="col-3">
+            <label for="id_word5">A type of conflict:</label>
+            <input name="word5" class="form-control" id="id_word5">
+        </div>
+        <div class="col-3">
+            <label for="id_word6">Something you steal:</label>
+            <input name="word6" class="form-control" id="id_word6">
+        </div>
+        <div class="col-3">
+            <label for="id_word7">A big structure:</label>
+            <input name="word7" class="form-control" id="id_word7">
+        </div>
+        <div class="col-3">
+            <label for="id_word8">A verb:</label>
+            <input name="word8" class="form-control" id="id_word8">
+        </div>
+        <div class="col-3">
+            <label for="id_word9">An important person's name:</label>
+            <input name="word9" class="form-control" id="id_word9">
+        </div>
         <div class="col-12 text-center mt-5">
             <button class="btn btn-primary" onclick="madLibs()" type="button">Play</button>
         </div>
@@ -265,17 +285,21 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
                 <span id="word4_tar">Galactic Empire</span>.
 
                 During the
-                <span id="word5_tar">battle</span>, Rebel
-                spies managed to steal secret
-                plans to the Empire's
-                ultimate weapon, the DEATH
-                STAR, an armored space
+                <span id="word5_tar">battle</span>,
+                Rebel
+                spies managed to steal
+                <span id="word6_tar">secret plans</span>
+                to the Empire's ultimate weapon,
+                <span id="word7_tar">the DEATH STAR</span>,
+                an armored space
                 station with enough power to
-                destroy an entire planet.
+                <span id="word8_tar">destroy</span>
+                an entire planet.
 
                 Pursued by the Empire's
                 sinister agents, Princess
-                Leia races home aboard her
+                <span id="word9_tar">Leia</span>
+                races home aboard her
                 starship, custodian of the
                 stolen plans that can save
                 her people and restore

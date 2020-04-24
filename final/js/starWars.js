@@ -1,4 +1,4 @@
-const wordCount = 4;
+const wordCount = 9;
 
 function madLibs (story) {
 
