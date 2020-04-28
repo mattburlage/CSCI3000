@@ -1,4 +1,6 @@
 const wordCount = 9;
+let intervalObj;
+let intervalObj2;
 
 function madLibs (story) {
 
@@ -31,8 +33,9 @@ function madLibs (story) {
                 target.text(word)
             }
         }
+        $(document).scrollTop(0, 0);
 
-        starWars();
+        intervalObj = setInterval(starWars, 500);
     } else {
         $('#error_text').text('Must have valid title.')
     }
@@ -73,6 +76,8 @@ function pickStory (id) {
 }
 
 function starWars() {
+    clearInterval(intervalObj);
+
     const starWarsNav = $('.star-wars-nav');
     const bodyTag = $('body');
 
@@ -111,9 +116,10 @@ function starWars() {
     var audio = document.getElementById("sw-audio");
     audio.play();
 
-    setInterval(undoStarWars, 90000)
+    intervalObj = setInterval(undoStarWars, 90000)
 
-    setInterval(() => {
+    intervalObj2 = setInterval(() => {
+        clearInterval(intervalObj2);
         starWarsNav.removeClass('fade2500');
         bodyTag.removeClass('fade2500');
         starWarsNav.addClass('fade5000');
@@ -123,6 +129,7 @@ function starWars() {
 }
 
 function undoStarWars () {
+    clearInterval(intervalObj);
 
     const starWarsNav = $('.star-wars-nav');
     const bodyTag = $('body');

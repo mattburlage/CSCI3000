@@ -39,7 +39,7 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
 <body class="fade2500">
 
 <nav class="navbar navbar-expand-lg fade2500 navbar-light bg-light star-wars-nav">
-    <a class="navbar-brand" href="index.php">Matt's Final</a>
+    <a id="navBarBrandLink" class="navbar-brand" href="index.php">Matt's Final</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -112,48 +112,48 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <div class=" collapse show stories-toggle">
     <div class="row mt-3">
-        <div class="col-3"></div>
-        <div class="col-6">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 col-12">
             <label for="id_title">Title:</label>&nbsp;&nbsp;
             <span id="error_text" class="text-danger small"></span>
             <input name="title" class="form-control" id="id_title">
         </div>
-        <div class="col-3"></div>
+        <div class="col-md-3"></div>
     </div>
     <div class="row mt-3">
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             <label for="id_word1">A type of punctuation:</label>
             <input name="word1" class="form-control" id="id_word1">
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             <label for="id_word2">Something that flies, plural:</label>
             <input name="word2" class="form-control" id="id_word2">
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             <label for="id_word3">A place/location:</label>
             <input name="word3" class="form-control" id="id_word3">
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             <label for="id_word4">A company:</label>
             <input name="word4" class="form-control" id="id_word4">
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             <label for="id_word5">A type of conflict:</label>
             <input name="word5" class="form-control" id="id_word5">
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             <label for="id_word6">Something you steal:</label>
             <input name="word6" class="form-control" id="id_word6">
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             <label for="id_word7">A big structure:</label>
             <input name="word7" class="form-control" id="id_word7">
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             <label for="id_word8">A verb:</label>
             <input name="word8" class="form-control" id="id_word8">
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3">
             <label for="id_word9">An important person's name:</label>
             <input name="word9" class="form-control" id="id_word9">
         </div>
