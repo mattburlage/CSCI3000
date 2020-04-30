@@ -60,14 +60,13 @@ $queryins->execute();
     <div class="container body-container text-center">
         <div class="row mt-3 mb-2">
             <div class="col-12">
-                This page uses AJAX to get a short link from the API provided by
-                <a href="https://rel.ink/">https://rel.ink/</a>.
+                This page uses AJAX to get a short link using the API provided by rebrand.ly.
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-12">
                 <div class="input-group input-group-lg mb-3">
-                    <input type="text" name="url" id="url_id" autocomplete="off" class="form-control" placeholder="URL">
+                    <input type="text" name="url" id="url_id" required autocomplete="off" class="form-control" placeholder="URL">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Get Link</button>
                     </div>
@@ -76,10 +75,19 @@ $queryins->execute();
         </div>
         <div class="row mt-5 ">
             <div class="col-12">
-                <div class="h5" id="link_header" >
+                <div class="h6 long-text text-muted" id="link_header" >
 
                 </div>
-                <div class="display-3" id="link_display">
+                <div class="h2" id="link_display_div">
+                    <a href="#" onclick="copyLink()" class="text-dark" id="link_display" data-clipboard-action="copy" data-clipboard-target="#link_display">
+
+                    </a>
+                    <input type="hidden" id="link_input">
+                </div>
+                <div id="link_footer" class="text-muted small">
+
+                </div>
+                <div id="link_error" class="h6 text-danger">
 
                 </div>
             </div>
@@ -103,6 +111,9 @@ $queryins->execute();
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="js/scripts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" integrity="sha256-tSRROoGfGWTveRpDHFiWVz+UXt+xKNe90wwGn25lpw8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js"></script>
+<script src="js/link.js"></script>
 </body>
 </html>

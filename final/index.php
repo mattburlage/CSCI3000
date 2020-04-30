@@ -60,7 +60,10 @@ $queryins->execute();
 <div class="container body-container">
     <div class="row mt-5">
         <div class="col-12">
-            <div class="display-4">
+            <div class="display-4 d-none d-sm-block">
+                Welcome to my site!
+            </div>
+            <div class="display-5-msb d-sm-none">
                 Welcome to my site!
             </div>
             <div class="lead">

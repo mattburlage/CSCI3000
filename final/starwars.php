@@ -67,18 +67,16 @@ $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="container body-container no-star-wars">
     <div class="row mt-5">
-        <div class="col-12 text-center">
-            <div class="display-4">Star Wars Mad Libs</div>
+        <div class="col-12 col-lg-8 offset-lg-2 text-center">
+            <div class="display-4 d-none d-sm-block">Star Wars Mad Libs</div>
+            <div class="display-5-msb d-sm-none">Star Wars Mad Libs</div>
             <div class="mt-2">
                 I'm not going to spoil everything this page does,
                 but the form below gets saved to our database via
-                AJAX.<br>Due to the use case, only the title is validated
+                AJAX, which is then displayed, among other ways,
+                in the 'Past Stories' section below.
+                Due to the use case, only the title is validated
                 as not empty. The rest are allowed to be blank.
-            </div>
-            <div class="text-muted small mt-3">
-                Technically, not everything this page does is responsive.
-                But hopefully it's cool enough that it can be overlooked.
-                The form below is fully responsive, as is the rest of the site.
             </div>
             <div class="text-muted small mt-3">
                 <a href=".stories-toggle" data-toggle="collapse">Show/Hide Past Stories</a>
